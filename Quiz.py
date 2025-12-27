@@ -1,12 +1,18 @@
-def quiz():
-    question_1 = (input("What Day is our anniversary?"))
-    question_2 = (input("What was my first dog's name?"))
-    question_3 = (input("What show are we currently watching?"))
-    a1 = ("December 30th")
-    a2 = ("Sadie")
-    a3= ("It's Always Sunny in Philadelphia")
+quiz = [
+    ("What is our anniversary?", "December 30th"),
+    ("What is the name of my first dog?", "Sadie"),
+    ("What city is this show based in?", "Philadelphia")
+]
+score = 0
+for number, (question, answer) in enumerate(quiz, start=1):
+    response = input(f"{number}. {question}")
+    if response == answer:
+        score += 1
+        print("Correct!")
+    else:
+        print("wrong :(")
 
-
-
-quiz
-
+if score == 3:
+    print(score, "Points. Good Job!")
+else:
+    print("only", score, "points. I guess you dont love me :(")
