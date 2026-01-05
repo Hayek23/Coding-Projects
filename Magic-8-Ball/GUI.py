@@ -40,10 +40,13 @@ class MainWindow(QMainWindow):
         self.yes.clicked.connect(self.yes_clicked)
         self.no = QPushButton("Exit")
         self.no.clicked.connect(self.close)
+        self.clear = QPushButton("Clear Question")
+        self.clear.clicked.connect(self.clear_clicked)
 
         layout = QVBoxLayout()
         layout.addWidget(self.answer)
         layout.addWidget(self.input)
+        layout.addWidget(self.clear)
         layout.addWidget(self.yes)
         layout.addWidget(self.no)
 
@@ -54,8 +57,10 @@ class MainWindow(QMainWindow):
 
     def yes_clicked(self):
         new_label = choice(answers)
-        self.input.setText("")
         self.answer.setText(new_label)
+    
+    def clear_clicked(self):
+        self.input.setText("")
 
 app = QApplication(sys.argv)
 window = MainWindow()
